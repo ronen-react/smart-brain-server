@@ -59,10 +59,8 @@ app.use(cors())
 // 	]
 // }
 
-// app.get('/', (req, res) => {res.send(database.users)})
 
-
-
+app.get('/', (req, res)=> { res.send(db.users) })
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt)}) // db, bcrypt are module injections
 app.post('/signin', signin.handleSignin(db, bcrypt)) // another wa - ES6 format
 app.get('/profile/:id', (req, res) => {profile.handleProfileGet(req, res, db)}) 

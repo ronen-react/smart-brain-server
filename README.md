@@ -204,3 +204,28 @@ Set url to server.js in db configuration/ (replace local 127.0.0.1)
 
 commit the changes
 push changes to heroku master.
+
+-> change the database connection parameters to:
+const db = knex({  client: 'pg',
+  connection: {
+  	host: process.env.DATABASE_URL,
+  	ssl: true,
+    // host : '127.0.0.1',
+    // host : 'postgresql-asymmetrical-16745'
+    // user : 'ronen',
+    // password : 'password',
+    // database : 'smart-brain'
+  }
+});
+
+
+push changes to heroku master
+
+(it still doesn't work..)
+run:
+heroku config
+
+It gives database url, 
+
+go to logs:
+heroku logs -tail

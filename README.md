@@ -156,5 +156,51 @@ heroku logs
 
 
 
+# Setup Postgress:
+
+## Click 9*9 dot matrix on Heroku screen's upper right corner
+### select Data
+### install postgress, attach to application
+### Now foloow documnetation: 
+On terminal: 
+$ heroku addons
+$ heroku pg:psql
+ Now database opens. Now create tables - paste the 2 tables' setup to terminal :
+
+CREATE TABLE login (
+	id serial PRIMARY KEY,
+	hash VARCHAR(100) NOT NULL,
+	email text UNIQUE NOT NULL
+);
+
+CREATE TABLE users (
+	id serial PRIMARY KEY,
+	name VARCHAR(100),
+	email text UNIQUE NOT NULL,
+	entries BIGINT DEFAULT 0,
+	joined TIMESTAMP NOT NULL
+);
+=> See 'CREATE TABLE' printed on insertion success.
 
 
+exit DATABASE: \q
+
+ What is the url of database?
+ Can be found if run on terminal:
+
+ $heroku addon (could also run heoku pg:info and see address of add-on)
+
+ result:
+ dd-on                                             Plan       Price  State  
+─────────────────────────────────────────────────  ─────────  ─────  ───────
+heroku-postgresql (postgresql-asymmetrical-16745)  hobby-dev  free   created
+ └─ as DATABASE
+
+The table above shows add-ons and the attachments to the current app (infinite-badlands-96374) or other apps.
+
+So url is  is postgresql-asymmetrical-16745
+
+Set url to server.js in db configuration/ (replace local 127.0.0.1)
+
+commit the changes
+push changes to heroku master.

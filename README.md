@@ -1,3 +1,6 @@
+# Deployed at:
+https://infinite-badlands-96374.herokuapp.com/
+
 # smart-brain-server
 A project from udemy course - 'The Complete Web Developer in 2020: Zero to Mastery'
 # Notes on postgres commands

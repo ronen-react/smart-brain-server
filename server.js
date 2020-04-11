@@ -14,11 +14,13 @@ const profile = require('./controllers/profile')
 // taken from knex site
 const db = knex({  client: 'pg',
   connection: {
+  	host: process.env.DATABASE_URL,
+  	ssl: true,
     // host : '127.0.0.1',
-    host : 'postgresql-asymmetrical-16745'
-    user : 'ronen',
-    password : 'password',
-    database : 'smart-brain'
+    // host : 'postgresql-asymmetrical-16745'
+    // user : 'ronen',
+    // password : 'password',
+    // database : 'smart-brain'
   }
 });
 

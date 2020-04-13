@@ -229,3 +229,27 @@ It gives database url,
 
 go to logs:
 heroku logs -tail
+
+Change to :
+const db = knex({  client: 'pg',
+  connection: {
+  	connectionString: process.env.DATABASE_URL,
+  	ssl: true,
+  }
+});
+
+
+push to heroku..
+now it works!!
+can check database:
+$ heroku pg:psql
+$ SELECT * FROM users; 
+-> users table is presented
+
+$ SELECT * FROM login; 
+-> users table is presented
+
+Can't grab face and detect
+
+Image endpoint fails...
+
